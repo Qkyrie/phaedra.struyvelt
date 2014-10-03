@@ -1122,6 +1122,10 @@ li.dummy.active { /* scrollspy fix */
 	.contact {
 		padding: 70px 0;
 	}
+
+    .big-image {
+        display: none !important;
+    }
 	
 	.hero {
 		height: auto;
@@ -1212,6 +1216,10 @@ li.dummy.active { /* scrollspy fix */
 	.contact {
 		padding: 70px 0;
 	}
+
+    .big-image {
+        display: none !important;
+    }
 	
 	.logo {
 		float: left;
@@ -1384,4 +1392,8 @@ li.dummy.active { /* scrollspy fix */
 		margin-left: 5%;
 		left: auto;
 	}
+
+    .big-image {
+        display: none !important;
+    }
 }
