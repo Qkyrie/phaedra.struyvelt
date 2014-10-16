@@ -120,50 +120,6 @@ function fixMap() {
 	};
 };
 
-/* TWITTER WIDGET IMPLEMENTATION */
-var tweetsLength = $('.twitter-widget').data('widget-length'), // number of tweets to be displayed
-	widgetId = $('.twitter-widget').data('widget-id'), // twitter widget id
-	tweetsId = widgetId,
-	htmlId	= 'twitter-widget', // DOM element where the widget will be
-	tweetsNumber = tweetsLength, 
-	hyperLink = true, // hyperlink the links and hashtags
-	userPhoto = true, // display the user image and name
-	tweetsDate = true, // display the date of posted tweets
-	reTweets = false, // show retweet 
-	tweetsLink = true; // show links for reply, retweet and favourite
-	
-// function to process twitter feeds data	
-function handleTweets(tweets) {
-	var x = tweets.length;
-		n = 0,
-		element = document.getElementById(htmlId),
-		html = '<ul>';
-	
-	while(n < x) {
-		html += '<li>' + tweets[n] + '</li>';
-		n++;
-	}
-
-	html += '</ul>';
-	element.innerHTML = html;
-	
-	$('.twitter-widget ul > li').each(function() {
-		$(this).find('.timePosted, .interact').wrapAll('<div class="twitter-meta" />');
-	});
-	
-	// remove the 'posted on' word
-	$('.timePosted').each(function() {
-		$(this).html($(this).html().replace('Posted on', '').replace('Posted', ''));
-	});
-	
-	// replace tweet links with icons
-	$('.twitter_reply_icon').html('<i class="fa fa-reply"></i>').attr('title', 'Reply');
-	$('.twitter_retweet_icon').html('<i class="fa fa-retweet"></i>').attr('title', 'Retweet');
-	$('.twitter_fav_icon').html('<i class="fa fa-star"></i>').attr('title', 'Favorite');
-};
-
-twitterFetcher.fetch(tweetsId, htmlId, tweetsNumber, hyperLink, userPhoto, tweetsDate, '', reTweets, handleTweets, tweetsLink);
-
 /* REFRESH SCROLLSPY */
 function scrollSpyRefresh() {
 	$('[data-spy="scroll"]').each(function() {
